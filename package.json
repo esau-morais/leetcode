@@ -1,11 +1,24 @@
 {
-  "name": "leetcode-solutions",
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "My LeetCode solutions",
+  "author": "Esau Morais <contact@emots.dev>",
   "module": "index.ts",
+  "scripts": {
+    "generate": "bun run src/index.ts",
+    "test": "bun test"
+  },
   "devDependencies": {
+    "@types/figlet": "^1.5.6",
     "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^11.0.0",
+    "figlet": "^1.6.0"
+  }
 }
