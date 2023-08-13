@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { merge } from "./merge-sorted-array";
 
-describe("cases", () => {
+describe("merge-sorted-array", () => {
   test("case 1", () => {
     const nums1 = [1, 2, 3, 0, 0, 0];
     const nums2 = [2, 5, 6];
