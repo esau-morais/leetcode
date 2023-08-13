@@ -1,4 +1,9 @@
 name: leetcode
+on:
+  push:
+    branches:
+      - "*"
+
 jobs:
   test:
     name: test
