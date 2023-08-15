@@ -1,3 +1,4 @@
+// O(n)
 export function removeDuplicates(nums: number[]): number {
   let duplicates = 0;
   for (let i = 0; i < nums.length; i++) {

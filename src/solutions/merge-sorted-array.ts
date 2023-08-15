@@ -1,6 +1,4 @@
-/**
- Do not return anything, modify nums1 in-place instead.
- */
+// O((m+n) log(m+n))
 export function merge(
   nums1: number[],
   m: number,
