@@ -1,3 +1,4 @@
+// O(n)
 export function romanToInt(s: string): number {
   const romanToIntMap: Record<string, number> = {
     I: 1,
