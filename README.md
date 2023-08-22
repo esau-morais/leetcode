@@ -1,15 +1,23 @@
 # leetcode-solutions
 
-To install dependencies:
+Install deps:
 
 ```bash
 bun install
 ```
 
-To run:
+Generate solution + test files:
 
 ```bash
-bun run index.ts
+bun generate -s <slug>
+
 ```
 
-This project was created using `bun init` in bun v0.6.3. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Test:
+
+```bash
+bun test
+
+```
+
+Build with bun
