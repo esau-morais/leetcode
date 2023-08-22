@@ -20,4 +20,4 @@ bun test
 
 ```
 
-Build with bun
+Built with bun
