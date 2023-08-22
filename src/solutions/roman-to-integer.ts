@@ -12,10 +12,12 @@ export function romanToInt(s: string): number {
   let result = 0;
 
   for (let i = 0; i < s.length; i++) {
-    if (romanToIntMap[s[i]] < romanToIntMap[s[i + 1]]) {
-      result -= romanToIntMap[s[i]];
+    const current = romanToIntMap[s[i]];
+    const next = romanToIntMap[s[i + 1]];
+    if (current < next) {
+      result -= current;
     } else {
-      result += romanToIntMap[s[i]];
+      result += current;
     }
   }
 
