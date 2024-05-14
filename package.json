@@ -19,6 +19,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "commander": "^11.0.0",
-    "figlet": "^1.6.0"
+    "figlet": "^1.6.0",
+    "leetcode-query": "^1.2.3"
   }
 }
