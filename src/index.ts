@@ -2,12 +2,16 @@ import { cancel, intro, isCancel, outro, spinner } from "@clack/prompts";
 import { LeetCode } from "leetcode-query";
 import { textSync } from "figlet";
 import { Command } from "commander";
+import { langExtensions } from "./utils/langs";
 
 const program = new Command();
 program.requiredOption("-s, --slug <slug>", "problem slug");
 program.option("-l, --lang <lang>", "code snippet language");
 program.parse(Bun.argv);
 const options = program.opts();
+
+type Lang = typeof langExtensions;
+type LangSlug = keyof Lang;
 
 const generateProblemFile = async () => {
   try {
@@ -27,14 +31,21 @@ const generateProblemFile = async () => {
             snippet.langSlug &&
             snippet.langSlug === (options.lang || "typescript"),
         )
-        .map((snippet) => snippet.code)[0];
+        .map((snippet) => ({
+          code: snippet.code,
+          langExt: langExtensions[snippet.langSlug as LangSlug],
+        }))[0];
 
       const s = spinner();
 
       s.start();
-      const problemFile = Bun.file(`./src/solutions/${slug}.ts`);
-      await Bun.write(problemFile, problemDetails);
-      const problemTestFile = Bun.file(`./src/solutions/${slug}.spec.ts`);
+      const problemFile = Bun.file(
+        `./src/solutions/${slug}.${problemDetails.langExt}`,
+      );
+      await Bun.write(problemFile, problemDetails.code);
+      const problemTestFile = Bun.file(
+        `./src/solutions/${slug}.spec.${problemDetails.langExt}`,
+      );
       const problemTestTemplate = `
 import { describe, expect, test } from "bun:test";
 
